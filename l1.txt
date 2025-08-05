@@ -1,0 +1,190 @@
+OOPS REVISION 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ABSTRACTION
+NOTES ->  OOPS BASIC TEMPLATE TO UNDERSTAND THE THINGS HERE 
+
+class classname {
+private:
+
+ data memebers
+
+ public:
+
+ methods to access //modify data(getter/setters)
+
+
+};
+
+class student {
+private:
+
+   string name;
+   int rollno;
+   float marks;
+
+
+   public:
+
+    void setdetails(string n, int r, float m){
+   name = n;
+   rollno = r;
+   marks = m;
+
+    }
+
+  string getname() {
+   return name;
+  }
+
+  float getmarks() {
+  return marks;
+  }
+
+};
+
+
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+  abstaction -> it really hides complexity here 
+
+class abstractclass {
+
+public:
+  virtual void somefunction() = 0;
+};
+
+
+ class derivedclass : public abstractclass {
+
+public:
+
+  void somefunction() { implementation of code here}
+
+ };
+
+
+
+
+
+ class admission {
+ public:
+   virtual bool checkeligibility(float marks) = 0;   --> we just build an abstract class here 
+ };
+
+
+
+ class ugadmission : public admission {
+public:
+
+   bool checkeligibility(float marks) {
+   return marks >= 60.0; ---> simple rules for ug
+
+   }
+ };
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INHERITANCE 
+
+class baseclass {
+public:
+
+   // common properties/ methods
+
+};
+
+class derivedclass : public baseclass {
+
+additional/properties/methods
+
+};
+
+class person {
+
+protected:
+     string name;
+     int age;
+
+public: 
+
+void setpersondetails(string n, int a){
+   
+   name = n;
+   age = a;
+
+   }   
+};
+
+
+class student : public person {
+private :
+  float marks;
+
+    public : 
+     void setstudentdetails(string n,int a, float m){
+
+        setpersondetails(n,a);
+        marks = m;
+     }
+};
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+POLYMORPHISM 
+
+class base {
+public:
+
+ virtual void function(){ default behaviour
+
+ }
+};
+
+class derived : public base {
+public:
+
+   void function() override  { different behaviour }
+}
+
+
+admission process alag alag courses ke liye alag alag ho skta hain 
+
+
+class admission {
+public: 
+
+ virtual void processadmisssion() {
+ cout << "general admission process\n" ;      
+   
+ }
+
+};
+
+class ugadmission : public admission {
+
+public :
+  void processadmission() override {
+
+   cout << "ug admission check 12th marks\n";
+
+  }
+
+
+};
+
+
+class pg admission : public admission {
+public : 
+
+
+void processadmission() override {
+  cout << "pg admission : check ug degree\n";
+
+   }
+
+};
